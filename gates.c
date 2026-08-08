@@ -16,6 +16,18 @@ int XOR(int a, int b) {
     return a ^ b;
 }
 
+int NAND(int a, int b) {
+    return NOT(AND(a, b));
+}
+
+int NOR(int a, int b) {
+    return NOT(OR(a, b));
+}
+
+int XNOR(int a, int b) {
+    return NOT(XOR(a, b));
+}
+
 int main(void) {
     int a = 1, b = 0;
 
@@ -25,6 +37,10 @@ int main(void) {
     printf("OR(%d, %d)  = %d\n", a, b, OR(a, b));
     printf("NOT(%d)     = %d\n", a, NOT(a));
     printf("XOR(%d, %d) = %d\n", a, b, XOR(a, b));
+    printf("NAND(%d, %d)= %d\n", a, b, NAND(a, b));
+    printf("NOR(%d, %d) = %d\n", a, b, NOR(a, b));
+    printf("XNOR(%d, %d)= %d\n", a, b, XNOR(a, b));
 
     return 0;
 }
+
