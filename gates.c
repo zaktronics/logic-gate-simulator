@@ -28,6 +28,18 @@ int XNOR(int a, int b) {
     return NOT(XOR(a, b));
 }
 
+void printTruthTable(int (*gateFunc)(int, int), const char *gateName) {
+    printf("\nTruth Table: %s\n", gateName);
+    printf("A B | Output\n");
+    printf("----+------\n");
+
+    for (int a = 0; a <= 1; a++) {
+        for (int b = 0; b <= 1; b++) {
+            printf("%d %d |   %d\n", a, b, gateFunc(a, b));
+        }
+    }
+}
+
 int main(void) {
     int a = 1, b = 0;
 
@@ -41,6 +53,12 @@ int main(void) {
     printf("NOR(%d, %d) = %d\n", a, b, NOR(a, b));
     printf("XNOR(%d, %d)= %d\n", a, b, XNOR(a, b));
 
+    printTruthTable(AND, "AND");
+    printTruthTable(OR, "OR");
+    printTruthTable(XOR, "XOR");
+    printTruthTable(NAND, "NAND");
+    printTruthTable(NOR, "NOR");
+    printTruthTable(XNOR, "XNOR");
+
     return 0;
 }
-
